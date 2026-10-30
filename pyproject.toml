@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "byte-tree-quantum"
+version = "0.1.0"
+description = "Ternary byte tree (1 -> 3 -> 9): every bit gets its own computer. Pure Python, optional Qiskit mapping."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Almeidafly" }]
+classifiers = ["Programming Language :: Python :: 3", "License :: Other/Proprietary License"]
+dependencies = []
+
+[project.optional-dependencies]
+qiskit = ["qiskit>=1.0", "qiskit-aer>=0.14"]
+test = ["pytest>=7"]
+
+[project.scripts]
+byte-tree-quantum = "byte_tree_quantum.__main__:main"
+
+[project.urls]
+Repository = "https://github.com/Almeidafly/byte-tree-quantum"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/byte_tree_quantum"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
